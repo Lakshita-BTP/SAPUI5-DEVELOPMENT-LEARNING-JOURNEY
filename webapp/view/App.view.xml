@@ -1,7 +1,10 @@
 <mvc:View 
+  controllerName="demo.jitu.prac.controller.App"
   xmlns:mvc="sap.ui.core.mvc"
   xmlns="sap.m">
 
-    <Text text="Hello World"/>
+    <!--Text text="Hello World"/ -->
+
+    <Button text="Say Hello" press=".onSayHello"></Button>
 
 </mvc:View>
