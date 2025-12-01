@@ -6,9 +6,6 @@ sap.ui.define([
 
         return UIComponent.extend("sap.training.exc.Component", {
 
-
-
-
         });
     }
 );
