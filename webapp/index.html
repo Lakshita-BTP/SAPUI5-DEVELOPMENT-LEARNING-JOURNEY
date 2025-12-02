@@ -15,20 +15,17 @@
         }
     </style>
     <title>Exercise Application</title>
-    <script id="sap-ui-bootstrap" 
-        src="resources/sap-ui-core.js" 
-        data-sap-ui-theme="sap_fiori_3"
-        data-sap-ui-libs="sap.m"
-        data-sap-ui-compatVersion="edge"
-        data-sap-ui-async="true"
-		data-sap-ui-onInit="module:demo/jitu/prac/index"
-		data-sap-ui-resourceroots='{"demo.jitu.prac": "./"}'
-    ></script>
+    <script id="sap-ui-bootstrap" src="resources/sap-ui-core.js" data-sap-ui-theme="sap_fiori_3"
+        data-sap-ui-libs="sap.m" data-sap-ui-compatVersion="edge" data-sap-ui-async="true"
+        data-sap-ui-resourceroots='{"demo.jitu.prac": "./"}'
+        data-sap-ui-onInit="module:sap/ui/core/ComponentSupport"></script>
 </head>
 
 <body class="sapUiBody" id="content">
-    <!--div>Hello World</div -->
-
+    <div data-sap-ui-component 
+         data-id="container" 
+         data-name="demo.jitu.prac"
+         data-settings='{"id" : "demo.jitu.prac_comp_id"}'></div>
 </body>
 
 </html>
