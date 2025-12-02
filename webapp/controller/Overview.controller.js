@@ -7,7 +7,7 @@ sap.ui.define([
     function (Controller) {
         "use strict";
 
-        return Controller.extend("sap.training.exc.controller.Overview", {
+        return Controller.extend("demo.jitu.prac.controller.Overview", {
 
 
         });
