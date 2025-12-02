@@ -5,7 +5,9 @@ sap.ui.define([
         "use strict";
 
         return Controller.extend("demo.jitu.prac.controller.App", {
-
+            onInit: function () {
+                this.getView().addStyleClass(this.getOwnerComponent().getContentDensityClass());
+            }
         })
     }
 )
