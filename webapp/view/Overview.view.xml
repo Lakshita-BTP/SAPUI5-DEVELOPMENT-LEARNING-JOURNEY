@@ -18,30 +18,67 @@
                         </f:toolbar>
                     <f:content>
                         <core:Title text="General Data"/>
-                        <Label text="Form"/>
-                        <Input value=""/>
-                        <Label text="Customer Name"/>
-                        <Input value=""/>
-                        <Label text="Discount"/>
-                        <Input value=""/>
+                        <Label text="Form"/><Input value="{customer>/Form}"/>
+                        <Label text="Customer Name"/><Input value="{customer>/CustomerName}"/>
+                        <Label text="Discount"/><Input value="{customer>/Discount}"/>
                         <core:Title text="Address Data"/>
-                        <Label text="Street"/>
-                        <Input value=""/>
-                        <Label text="Post Code"/>
-                        <Input value=""/>
-                        <Label text="City"/>
-                        <Input value=""/>
-                        <Label text="Country"/>
-                        <Input value=""/>
+                        <Label text="Street"/><Input value="{customer>/Street}"/>
+                        <Label text="Post Code"/><Input value="{customer>/PostCode}"/>
+                        <Label text="City"/><Input value="{customer>/City}"/>
+                        <Label text="Country"/><Input value="{customer>/Country}"/>
                         <core:Title text="Contact Data"/>
-                        <Label text="Email"/>
-                        <Input value=""/>
-                        <Label text="Telephone"/>
-                        <Input value=""/>
+                        <Label text="Email"/><Input value="{customer>/Email}"/>
+                        <Label text="Telephone"/><Input value="{customer>/Telephone}"/>
                     </f:content>
                     </f:SimpleForm>
                 </content>
             </Panel>
+            <Table headerText="Customers" growing="true" growingThreshold="5" class="sapUiResponsiveMargin" width="auto" items="{/Customers}"
+                    mode="SingleSelectLeft" selectionChange=".onCustomerChange">
+                <columns>
+                    <Column><header><Text text="Customer Name"/></header></Column>
+                    <Column><header><Text text="Street"/></header></Column>
+                    <Column><header><Text text="Post Code"/></header></Column>
+                    <Column><header><Text text="City"/></header></Column>
+                    <Column><header><Text text="Country"/></header></Column>
+                    <Column><header><Text text="Email"/></header></Column>
+                </columns>
+                <items>
+                    <ColumnListItem>
+                    <cells>
+                        <ObjectIdentifier title="{CustomerName}"/>
+                        <Text text="{Street}"/>
+                        <Text text="{PostCode}"/>
+                        <Text text="{City}"/>
+                        <Text text="{Country}"/>
+                        <Text text="{Email}"/>
+                    </cells>
+                    </ColumnListItem>
+                </items>
+            </Table>
+            <Table id="bookingTable" headerText="Bookings" items="{_Bookings}" growing="true" growingThreshold="5" class="sapUiResponsiveMargin" width="auto">
+                <columns>
+                    <Column><header><Text text="Airline ID"/></header></Column>
+                    <Column><header><Text text="Connection Number"/></header></Column>
+                    <Column><header><Text text="Flight Date"/></header></Column>
+                    <Column><header><Text text="Class"/></header></Column>
+                    <Column><header><Text text="Foreign Currency Payment"/></header></Column>
+                    <Column><header><Text text="Cancellation Status"/></header></Column>
+                </columns>
+                <items>
+                    <ColumnListItem>
+                    <cells>
+                        <ObjectIdentifier title="{AirlineID}"/>
+                        <ObjectIdentifier title="{ConnectionNumber}"/> 
+                        <ObjectIdentifier title="{FlightDate}"/>
+                        <Text text="{Class}"/>
+                        <ObjectNumber number="{ForeignCurrencyPayment}"
+                            unit="{ForeignCurrency}"/>
+                        <Text text="{IsCancelled}"/>
+                    </cells>
+                    </ColumnListItem>
+                </items>
+            </Table>
         </content>
     </Page>   
 </mvc:View>
