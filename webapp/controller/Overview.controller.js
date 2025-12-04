@@ -12,22 +12,24 @@ sap.ui.define([
         "use strict";
 
         return Controller.extend("demo.jitu.prac.controller.Overview", {
-
+            lv_promise_dialog: null,
+            
             onInit: function () {
                 var oModel = new JSONModel();
                 this.getView().setModel(oModel, "customer");
             },
 
             onSave: function () {
-                if (!this.pDialog) {
-                    this.pDialog = this.loadFragment({
+
+                if (!this.lv_promise_dialog) {
+                    this.lv_promise_dialog = this.loadFragment({
                         name: "demo.jitu.prac.view.Dialog"
                     }).then(function (oDialog) {
                         syncStyleClass(this.getOwnerComponent().getContentDensityClass(), this.getView(), oDialog);
                         return oDialog;
                     }.bind(this));
                 }
-                this.pDialog.then(function (oDialog) {
+                this.lv_promise_dialog.then(function (oDialog) {
                     oDialog.open();
                 });
             },
@@ -50,6 +52,7 @@ sap.ui.define([
 
                 var oTable = this.byId("customerTable");
                 var oBinding = oTable.getBinding("items");
+                // @ts-ignore
                 oBinding.filter(aFilter);
             }
         });
