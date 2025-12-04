@@ -1,8 +1,6 @@
-<mvc:View controllerName="demo.jitu.prac.controller.Overview"
-          xmlns:mvc="sap.ui.core.mvc"  
-          xmlns="sap.m"
-          xmlns:f="sap.ui.layout.form"
-          xmlns:core="sap.ui.core">
+<mvc:View controllerName="demo.jitu.prac.controller.Overview" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" xmlns:f="sap.ui.layout.form" xmlns:core="sap.ui.core"
+          core:require="{formatter: 'demo/jitu/prac/model/formatter'}">
+
     <Page title="Flight Customers">
         <content>
             <Panel headerText="New Customer" expandable="true" expanded="true" class="sapUiResponsiveMargin sapUiHideOnPhone" width="auto">
@@ -75,7 +73,8 @@
                         <ObjectIdentifier title="{ path: 'FlightDate',
                                                    type: 'sap.ui.model.type.Date',
                                                    formatOptions: {source: {pattern: 'yyyy-MM-dd'}, style: 'medium'} }"/>
-                        <Text text="{Class}"/>
+                        <Text text="{ path: 'Class', 
+                                      formatter: 'formatter.classText' }"/>
                         <ObjectNumber number="{ parts: [ {path: 'ForeignCurrencyPayment'}, {path: 'ForeignCurrency'} ],
                                                 type: 'sap.ui.model.type.Currency',
                                                 formatOptions: {showMeasure: false} }"
