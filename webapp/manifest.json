@@ -67,7 +67,9 @@
             "i18n": {
                 "type": "sap.ui.model.resource.ResourceModel",
                 "settings": {
-                    "bundleName": "<...>"
+                    "bundleName": "demo.jitu.prac.i18n.i18n",
+                    "supportedLocales": [""],
+                    "fallbackLocale": ""
                 }
             },
             "ODataModel": {

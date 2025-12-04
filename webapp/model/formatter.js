@@ -1,14 +1,14 @@
-sap.ui.define([], function () {
+sap.ui.define(["sap/base/i18n/ResourceBundle"], function (ResourceBundle) {
     "use strict";
     return {
         classText: function (sClass) {
             switch (sClass) {
                 case "C":
-                    return "Business Class";
+                    return ResourceBundle.getText("flightClassC"); //"Business Class";
                 case "Y":
-                    return "Economy Class";
+                    return oResourceBundle.getText("flightClassY"); //"Economy Class";
                 case "F":
-                    return "First Class";
+                    return oResourceBundle.getText("flightClassF"); //"First Class";
                 default:
                     return sClass;
             }
