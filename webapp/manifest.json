@@ -68,7 +68,9 @@
                 "type": "sap.ui.model.resource.ResourceModel",
                 "settings": {
                     "bundleName": "demo.jitu.prac.i18n.i18n",
-                    "supportedLocales": [""],
+                    "supportedLocales": [
+                        ""
+                    ],
                     "fallbackLocale": ""
                 }
             },
@@ -94,12 +96,26 @@
                 "routerClass": "sap.m.routing.Router",
                 "viewType": "XML",
                 "async": true,
-                "viewPath": "",
+                "viewPath": "demo.jitu.prac.view",
                 "controlAggregation": "pages",
-                "controlId": "<...>"
+                "controlId": "app"
             },
-            "routes": [],
-            "targets": {}
+            "routes": [
+                {
+                    "name": "overview",
+                    "pattern": "",
+                    "target": [
+                        "overview"
+                    ]
+                }
+            ],
+            "targets": {
+                "overview": {
+                    "viewId": "overview",
+                    "viewName": "Overview",
+                    "viewLevel": 1
+                }
+            }
         },
         "rootView": {
             "viewName": "demo.jitu.prac.view.App",

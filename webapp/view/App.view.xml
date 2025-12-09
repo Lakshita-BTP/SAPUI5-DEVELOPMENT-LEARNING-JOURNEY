@@ -1,9 +1,7 @@
 <mvc:View controllerName="demo.jitu.prac.controller.App" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" displayBlock="true">
   <Shell>
-    <App>
-      <pages>
-        <mvc:XMLView viewName="demo.jitu.prac.view.Overview"/>
-      </pages>
+    <App id="app">
+
     </App>
   </Shell>
 </mvc:View>
