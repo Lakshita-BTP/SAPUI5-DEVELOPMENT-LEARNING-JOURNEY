@@ -74,6 +74,11 @@ sap.ui.define([
                 var oBinding = oTable.getBinding("items");
                 // @ts-ignore
                 oBinding.filter(aFilter);
+            },
+
+            onNavToDetails: function () {
+                var oRouter = this.getOwnerComponent().getRouter();
+                oRouter.navTo("detail");
             }
         });
     });
