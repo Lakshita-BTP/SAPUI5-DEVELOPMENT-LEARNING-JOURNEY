@@ -7,8 +7,12 @@ sap.ui.define([
     function (Controller) {
         "use strict";
 
-        return Controller.extend("sap.training.exc.controller.NotFound", {
+        return Controller.extend("demo.jitu.prac.controller.NotFound", {
 
+            onNavToOverview: function () {
+                var oRouter = this.getOwnerComponent().getRouter();
+                oRouter.navTo("overview", {}, true);
+            }
 
         });
     });
