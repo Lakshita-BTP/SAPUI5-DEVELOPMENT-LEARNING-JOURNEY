@@ -3,17 +3,18 @@ sap.ui.define([
     "sap/ui/core/syncStyleClass",
     "sap/ui/model/json/JSONModel",
     "sap/ui/model/Filter",
-    "sap/ui/model/FilterOperator"
+    "sap/ui/model/FilterOperator",
+    "sap/m/MessageToast"
 ],
     /**
      * @param {typeof sap.ui.core.mvc.Controller} Controller
      */
-    function (Controller, syncStyleClass, JSONModel, Filter, FilterOperator) {
+    function (Controller, syncStyleClass, JSONModel, Filter, FilterOperator, MessageToast) {
         "use strict";
 
         return Controller.extend("demo.jitu.prac.controller.Overview", {
             lv_promise_dialog: null,
-            
+
             onInit: function () {
                 var oModel = new JSONModel();
                 this.getView().setModel(oModel, "customer");
@@ -21,16 +22,35 @@ sap.ui.define([
 
             onSave: function () {
 
-                if (!this.lv_promise_dialog) {
-                    this.lv_promise_dialog = this.loadFragment({
-                        name: "demo.jitu.prac.view.Dialog"
-                    }).then(function (oDialog) {
-                        syncStyleClass(this.getOwnerComponent().getContentDensityClass(), this.getView(), oDialog);
-                        return oDialog;
-                    }.bind(this));
-                }
-                this.lv_promise_dialog.then(function (oDialog) {
-                    oDialog.open();
+                // if (!this.lv_promise_dialog) {
+                //     this.lv_promise_dialog = this.loadFragment({
+                //         name: "demo.jitu.prac.view.Dialog"
+                //     }).then(function (oDialog) {
+                //         syncStyleClass(this.getOwnerComponent().getContentDensityClass(), this.getView(), oDialog);
+                //         return oDialog;
+                //     }.bind(this));
+                // }
+                // this.lv_promise_dialog.then(function (oDialog) {
+                //     oDialog.open();
+                // });
+
+                var oModelData = this.getView().getModel("customer").getData();
+                var oResourceBundle = this.getView().getModel("i18n").getResourceBundle();
+
+                if (oModelData.Discount === undefined) { oModelData.Discount = 0; }
+
+                this.byId("customerTable").getBinding("items").create({
+                    "Form": oModelData.Form,
+                    "CustomerName": oModelData.CustomerName,
+                    "Discount": oModelData.Discount + "",
+                    "Street": oModelData.Street,
+                    "PostCode": oModelData.PostCode,
+                    "City": oModelData.City,
+                    "Country": oModelData.Country,
+                    "Email": oModelData.Email,
+                    "Telephone": oModelData.Telephone
+                }).created().then(function () {
+                    MessageToast.show(oResourceBundle.getText("customerCreatedMessage"));
                 });
             },
 
